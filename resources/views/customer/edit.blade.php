@@ -4,6 +4,7 @@
 
 
 <div class="container" style="padding-top:5%">
+
 <div class="card container ">
     <div class="card-body">
       <p class="card-text">Nom de client : {{ $customer->Nom }} {{ $customer->Prenom }}</p>

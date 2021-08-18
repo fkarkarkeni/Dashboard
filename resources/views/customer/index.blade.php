@@ -10,13 +10,13 @@
   </div>
 
   <div class="container">
-    @if ($message = Session::get('success'))
+    @if ($message = Session::get('succes'))
     <div class="alert alert-primary" role="alert">
       {{$message}}
       </div>
     @endif
 
-</div>
+  </div>
 
 <table class="table container">
     <thead class="table-dark container">
