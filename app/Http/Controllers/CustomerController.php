@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 
 class CustomerController extends Controller
 {
+
+   
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +16,7 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        $customers= Customer::latest()->paginate(2);
+        $customers= Customer::latest()->paginate(5);
         return view('customer.index' , compact('customers'));
     }
 
@@ -26,6 +28,7 @@ class CustomerController extends Controller
     public function create()
     {
         return view('customer.create' );
+
     }
 
     /**
@@ -47,6 +50,7 @@ class CustomerController extends Controller
         $customer= Customer::create($request->all());
         return redirect()->route('customers.index')
         ->with('succes','Customer added successfully');
+
     }
 
     /**
@@ -81,12 +85,12 @@ class CustomerController extends Controller
     public function update(Request $request, Customer $customer)
     {
         $request->validate([
-            'Nom'=> 'required',
-            'Prenom'=> 'required',
+            'Nom'=> ['required', 'max:45'],
+            'Prenom'=> ['required', 'max:45'],
             'Tel'=> 'required',
             'Adress'=> 'required',
            'Date_de_naissance'=> 'required',
-           'Situation_familiale'=> 'required'
+           'Situation_familiale'=> ['required', 'max:45']
         ]);
 
         $customer->update($request->all());

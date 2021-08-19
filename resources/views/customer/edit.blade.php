@@ -7,7 +7,7 @@
 
 <div class="card container ">
     <div class="card-body">
-      <p class="card-text">Nom de client : {{ $customer->Nom }} {{ $customer->Prenom }}</p>
+      <p class="card-text"> <span><a href="{{ route('customers.index')}}">Retour</a><Span>   Nom de client : {{ $customer->Nom }} {{ $customer->Prenom }}</p>
     </div>
 </div>
 </div>
@@ -18,19 +18,19 @@
 @method('PUT')
     <div class="form-group">
       <label>Nom :</label>
-      <input type="text" class="form-control"  value="{{ $customer->Nom }}" name="Nom">
+      <input type="text" class="form-control"  value="{{ $customer->Nom }}" name="Nom" maxlength="45">
     </div>
 
 
     <div class="form-group">
         <label>Prenom :</label>
-        <input type="text" class="form-control"  value="{{ $customer->Prenom }}" name="Prenom">
+        <input type="text" class="form-control"  value="{{ $customer->Prenom }}" name="Prenom" maxlength="45">
       </div>
 
 
       <div class="form-group">
         <label>tel :</label>
-        <input type="tel" class="form-control" placeholder=" Exemple : +21699 999 999" value="{{ $customer->Tel }}" name="Tel">
+        <input type="tel" class="form-control" placeholder=" Exemple : 99 999 999" value="{{ $customer->Tel }}" name="Tel">
       </div>
 
 
@@ -50,7 +50,7 @@
 
       <div class="form-group">
         <label >Situation familiale :</label>
-        <input type="text" class="form-control" placeholder="marié, divorcé, séparé, célibataire ou veuf." value="{{ $customer->Situation_familiale }}" name="Situation_familiale" >
+        <input type="text" class="form-control" placeholder="marié, divorcé, séparé, célibataire ou veuf." value="{{ $customer->Situation_familiale }}" name="Situation_familiale" maxlength="45" >
       </div>
 
 
